@@ -1,0 +1,18 @@
+{
+	"name": "deploy-toolbag",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"davidanson.vscode-markdownlint",
+				"ms-azuretools.vscode-docker",
+				"ms-vscode.makefile-tools"
+			]
+		}
+	},
+	"containerUser": "vscode",
+	"updateRemoteUserUID": true
+}
