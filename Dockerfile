@@ -9,6 +9,8 @@ RUN \
     apk add --no-cache \
         jq \
         make \
+        shadow \
+        sudo \
         vault \
     && curl -fsSL "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/${ARCH}/kubectl" \
         -o /usr/local/bin/kubectl \
@@ -21,7 +23,10 @@ RUN \
     && gcloud config set core/disable_usage_reporting true \
     && gcloud config set component_manager/disable_update_check true \
     && gcloud --version \
-    && rm -rf -- /root/.config/gcloud/logs/*
+    && rm -rf -- /root/.config/gcloud/logs/* \
+    && usermod -s /bin/ash cloudsdk \
+    && addgroup cloudsdk wheel \
+    && echo "cloudsdk ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/grafana
 
 RUN \
     HADOLINT_VARIANT="$(uname -s)-$(uname -m)" \
