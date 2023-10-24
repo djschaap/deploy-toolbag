@@ -8,6 +8,7 @@ NO WARRANTY IS PROVIDED - use at your own risk.
 ## Included Tools
 
 - curl
+- envsubst
 - google-cloud-cli (gcloud)
 - hadolint
 - jq
