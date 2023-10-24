@@ -7,6 +7,7 @@ ARG  \
 
 RUN \
     apk add --no-cache \
+        envsubst \
         jq \
         make \
         shadow \
